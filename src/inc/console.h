@@ -8,4 +8,6 @@ void K8_Draw();
 
 void K8_Update();
 
+void luaDemo();
+
 #endif // K8_CONSOLE_H
