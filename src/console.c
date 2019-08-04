@@ -5,14 +5,14 @@ void K8_Draw(){
 }
 
 void K8_Update(){
-  //SSD1351_update();
+  SSD1351_update();
 }
 
 void luaDemo(){
   lua_State *L;
   L = luaL_newstate();
   luaL_openlibs(L);
-  char *script = "function dosum(a, b) \
+  char *script = "function doSum(a, b) \
                   return a + b   \
                   end";
   int error = luaL_loadstring(L, script) || lua_pcall(L, 0, 0, 0);
@@ -22,7 +22,7 @@ void luaDemo(){
   }
   else {
     SSD_PRINTF("No error");
-    lua_getglobal(L, "dosum");
+    lua_getglobal(L, "doSum");
     lua_pushinteger(L, 2);
     lua_pushinteger(L, 3);
     lua_call(L, 2, 1);
