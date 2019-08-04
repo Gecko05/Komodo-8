@@ -2,6 +2,11 @@
 #define K8_CONSOLE_H
 
 #include "ssd1351.h"
+#include <lua.h>
+#include <lauxlib.h>
+#include <lualib.h>
+#include <stdlib.h>
+#include <stdio.h>
 
 // Called by the FreeRTOS task
 void K8_Draw();
