@@ -1,5 +1,7 @@
 #include "console.h"
 
+static lua_State *L;
+
 void K8_Draw(){
 
 }
@@ -8,11 +10,16 @@ void K8_Update(){
   SSD1351_update();
 }
 
-void luaDemo(){
-  lua_State *L;
+void K8_init(){
   L = luaL_newstate();
   luaL_openlibs(L);
+  lua_pushcfunction(L, K8_drawLine);
+  lua_setglobal(L, "line");
+}
+
+void luaDemo(){
   char *script = "function doSum(a, b) \
+                  line(0, 0, 127, 127, 15) \
                   return a + b   \
                   end";
   int error = luaL_loadstring(L, script) || lua_pcall(L, 0, 0, 0);

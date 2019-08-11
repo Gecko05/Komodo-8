@@ -7,6 +7,7 @@
 #include <lualib.h>
 #include <stdlib.h>
 #include <stdio.h>
+#include "lua_binding.h"
 
 // Called by the FreeRTOS task
 void K8_Draw();
